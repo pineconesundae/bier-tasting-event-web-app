@@ -1,0 +1,46 @@
+.event-section {
+  display: grid;
+  grid-template-columns: 0.7fr 1.5fr;
+  gap: 80px;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+
+  & article {
+    padding: 18px 28px;
+    border-left: 1px solid #d7cdb8;
+  }
+
+  & h3 {
+    margin: 20px 0 9px;
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem;
+  }
+
+  & p {
+    margin: 4px 0;
+    color: #5d625e;
+    line-height: 1.5;
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .event-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .event-grid {
+    grid-template-columns: 1fr;
+
+    & article {
+      border-left: 0;
+      border-top: 1px solid #d7cdb8;
+      padding: 22px 0;
+    }
+  }
+}

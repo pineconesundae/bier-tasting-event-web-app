@@ -1,0 +1,120 @@
+.claimed {
+  background: #fffaf0;
+
+  & .section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 30px;
+    border-bottom: 1px solid #d9d0c0;
+    padding-bottom: 28px;
+  }
+
+  & .count {
+    background: var(--green);
+    color: white;
+    border-radius: 99px;
+    padding: 8px 14px;
+    font-size: 0.76rem;
+    white-space: nowrap;
+  }
+}
+
+.table-wrapper {
+  margin-top: 28px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid #d9d0c0;
+  background: #fffdf7;
+  box-shadow: 0 4px 12px rgba(23, 63, 43, 0.04);
+}
+
+.beer-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+  min-width: 620px;
+
+  & thead {
+    background: #f4ede0;
+    border-bottom: 2px solid #d9d0c0;
+  }
+
+  & th {
+    padding: 14px 18px;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    color: var(--green);
+    white-space: nowrap;
+  }
+
+  & td {
+    padding: 16px 18px;
+    border-bottom: 1px solid #ede5d7;
+    vertical-align: middle;
+    color: #3a423d;
+  }
+
+  & tbody tr {
+    transition: background 0.15s ease;
+
+    &:last-child td {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: #fbf6ec;
+    }
+  }
+
+  & .col-num {
+    width: 48px;
+    text-align: center;
+    padding-left: 14px;
+    padding-right: 14px;
+
+    & .number {
+      color: #b5a995;
+      font-family: 'Fraunces', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+  }
+
+  & .beer-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  & .brewery-cell {
+    color: var(--red) !important;
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  & .package-cell {
+    font-size: 0.82rem;
+    color: #626964;
+    white-space: nowrap;
+  }
+
+  & .attendee-cell {
+    font-weight: 600;
+    color: #223127;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 520px) {
+  .claimed .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

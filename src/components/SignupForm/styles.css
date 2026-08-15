@@ -1,0 +1,135 @@
+.signup {
+  background: var(--green);
+  color: #f8f2e6;
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: 90px;
+
+  & h2 {
+    color: #fffaf0;
+  }
+
+  & .signup-intro > p:not(.section-kicker) {
+    color: #cfdbd1;
+    line-height: 1.7;
+  }
+
+  & .privacy {
+    border-left: 2px solid var(--gold);
+    padding-left: 14px;
+    font-size: 0.78rem;
+    margin-top: 34px;
+  }
+
+  & form {
+    background: #fffaf0;
+    color: #223127;
+    padding: 38px;
+    box-shadow: 12px 12px 0 #0d2c1d;
+
+    & label,
+    & fieldset {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    & input[type='text'],
+    & input:not([type]) {
+      display: block;
+      width: 100%;
+      margin-top: 8px;
+      border: 1px solid #cbc2b1;
+      background: white;
+      padding: 14px;
+      font: inherit;
+      font-weight: 400;
+      font-size: 0.9rem;
+
+      &:focus-visible {
+        outline: 3px solid #f4c861;
+        outline-offset: 3px;
+      }
+    }
+
+    & .form-row,
+    & .choice-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    & .form-row {
+      margin-top: 18px;
+    }
+
+    & fieldset {
+      border: 0;
+      padding: 0;
+      margin: 25px 0 0;
+    }
+
+    & legend {
+      margin-bottom: 9px;
+    }
+  }
+
+  & .choice {
+    position: relative;
+    cursor: pointer;
+
+    & input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    & span {
+      border: 1px solid #cbc2b1;
+      padding: 13px 14px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    & input:checked + span {
+      border: 2px solid var(--green);
+      padding: 12px 13px;
+      background: #eaf0eb;
+    }
+
+    & small {
+      font-weight: 400;
+      color: #697069;
+      margin-top: 3px;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .signup {
+    grid-template-columns: 1fr;
+    gap: 40px;
+
+    & form {
+      padding: 24px;
+
+      & .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .signup {
+    padding-left: 16px;
+    padding-right: 16px;
+
+    & form {
+      margin: 0 -4px;
+
+      & .choice-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

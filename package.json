@@ -1,0 +1,32 @@
+{
+  "name": "neighborhood-oktoberfest",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "deploy": "wrangler deploy",
+    "db:migrate:local": "wrangler d1 migrations apply oktoberfest-signups --local",
+    "db:migrate:remote": "wrangler d1 migrations apply oktoberfest-signups --remote"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "latest",
+    "@cloudflare/workers-types": "latest",
+    "@eslint/js": "latest",
+    "eslint": "latest",
+    "eslint-plugin-react-hooks": "latest",
+    "eslint-plugin-react-refresh": "latest",
+    "vitest": "latest",
+    "wrangler": "latest"
+  }
+}
