@@ -6,7 +6,7 @@ export default function Rules() {
       <div className="rules-copy">
         <p className="section-kicker">What to bring</p>
         <h2 id="rules-title">Your bier is your tasting ticket.</h2>
-        <p>Each signup brings one unique, authentic <strong>Märzen</strong> or <strong>Festbier</strong>. "Oktoberfest-style" beers that are neither style aren't part of this tasting. Pumpkin beers are grounds for ejection.</p>
+        <p>Each signup brings a unique, authentic <strong>Märzen</strong> or <strong>Festbier</strong>. "Oktoberfest-style" beers that are neither style aren't part of this tasting. Pumpkin beers are grounds for ejection.</p>
         <p>When you arrive, exchange your bier for a tasting ticket. Keep this safe so you can trade it for a set of anonymized tasting samples later.</p>
       </div>
       <div className="package-card">

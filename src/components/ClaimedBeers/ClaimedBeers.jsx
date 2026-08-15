@@ -1,7 +1,7 @@
-import { STYLE, PACKAGE } from '../../constants/beer.js';
+import { STYLE } from '../../constants/beer.js';
 import './styles.css';
 
-export default function ClaimedBeers({ signups, loading, error, onRetry }) {
+export default function ClaimedBeers({ signups, loading, error, onRetry, isAdmin, onEdit, onDelete }) {
   return (
     <section className="claimed" aria-labelledby="claimed-title">
       <div className="section-heading">
@@ -9,7 +9,7 @@ export default function ClaimedBeers({ signups, loading, error, onRetry }) {
           <p className="section-kicker">The tasting table</p>
           <h2 id="claimed-title">Biers already claimed</h2>
         </div>
-        <span className="count">{signups.length} bier{signups.length > 1 && 's'}</span>
+        <span className="count">{signups.length} bier{signups.length !== 1 && 's'}</span>
       </div>
       {loading && <p className="state" role="status">Checking the cellar…</p>}
       {error && (
@@ -30,6 +30,7 @@ export default function ClaimedBeers({ signups, loading, error, onRetry }) {
                 <th scope="col">Brewery</th>
                 <th scope="col">Style</th>
                 <th scope="col">Claimed by</th>
+                {isAdmin && <th scope="col" className="col-actions">Actions</th>}
               </tr>
             </thead>
             <tbody>
@@ -46,6 +47,26 @@ export default function ClaimedBeers({ signups, loading, error, onRetry }) {
                     <span className="style-pill">{STYLE[beer.style] || beer.style}</span>
                   </td>
                   <td className="attendee-cell">{beer.attendee_name}</td>
+                  {isAdmin && (
+                    <td className="actions-cell">
+                      <button
+                        type="button"
+                        className="action-btn edit-btn"
+                        onClick={() => onEdit(beer)}
+                        title="Edit this entry"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        type="button"
+                        className="action-btn delete-btn"
+                        onClick={() => onDelete(beer)}
+                        title="Delete this entry"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  )}
                 </tr>
               ))}
             </tbody>

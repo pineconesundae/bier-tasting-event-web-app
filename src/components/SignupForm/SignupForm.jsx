@@ -1,16 +1,44 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { STYLE } from '../../constants/beer.js';
 import './styles.css';
 
 const EMPTY_FORM = { attendeeName: '', brewery: '', beerName: '', style: '', packageType: '' };
 
-export default function SignupForm({ onSignupSuccess }) {
-  const [form, setForm] = useState(EMPTY_FORM);
+export default function SignupForm({ onSignupSuccess, editingSignup, onCancelEdit }) {
+  const isEditing = Boolean(editingSignup);
+  const [form, setForm] = useState(() => (
+    editingSignup
+      ? {
+          attendeeName: editingSignup.attendee_name || '',
+          brewery: editingSignup.brewery || '',
+          beerName: editingSignup.beer_name || '',
+          style: editingSignup.style || '',
+          packageType: editingSignup.package_type || '',
+        }
+      : EMPTY_FORM
+  ));
   const [notice, setNotice] = useState({ type: '', text: '' });
   const [submitting, setSubmitting] = useState(false);
 
+  useEffect(() => {
+    if (editingSignup) {
+      const el = document.getElementById('signup');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [editingSignup]);
+
   function update(event) {
     setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
+  }
+
+  function handleCancel() {
+    setForm(EMPTY_FORM);
+    setNotice({ type: '', text: '' });
+    if (onCancelEdit) {
+      onCancelEdit();
+    }
   }
 
   async function submit(event) {
@@ -18,15 +46,29 @@ export default function SignupForm({ onSignupSuccess }) {
     setSubmitting(true);
     setNotice({ type: '', text: '' });
     try {
-      const response = await fetch('/api/signups', {
-        method: 'POST',
+      const endpoint = isEditing ? `/api/signups/${editingSignup.id}` : '/api/signups';
+      const method = isEditing ? 'PUT' : 'POST';
+
+      const response = await fetch(endpoint, {
+        method,
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(form),
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'We could not save your signup.');
+
       setForm(EMPTY_FORM);
-      setNotice({ type: 'success', text: 'Prost! Your bier is officially on the tasting table.' });
+      setNotice({
+        type: 'success',
+        text: isEditing
+          ? 'Bier updated! The tasting table has been updated.'
+          : 'Prost! Your bier is officially on the tasting table.',
+      });
+
+      if (isEditing && onCancelEdit) {
+        onCancelEdit();
+      }
+
       if (onSignupSuccess) {
         await onSignupSuccess();
       }
@@ -40,9 +82,13 @@ export default function SignupForm({ onSignupSuccess }) {
   return (
     <section className="signup" id="signup" aria-labelledby="signup-title">
       <div className="signup-intro">
-        <p className="section-kicker">Add to the lineup</p>
-        <h2 id="signup-title">Claim your bier</h2>
-        <p>Picked up a good one? Put your name on it before someone else does. No duplicates allowed!</p>
+        <p className="section-kicker">{isEditing ? 'Admin edit' : 'Add to the lineup'}</p>
+        <h2 id="signup-title">{isEditing ? 'Edit claimed bier' : 'Claim your bier'}</h2>
+        <p>
+          {isEditing
+            ? `Updating entry for "${editingSignup.beer_name}" brought by ${editingSignup.attendee_name}.`
+            : 'Picked up a good one? Put your name on it before someone else does. No duplicates allowed!'}
+        </p>
         <p className="privacy">Your signup will be visible to everyone with this private event link.</p>
       </div>
       <form onSubmit={submit}>
@@ -151,9 +197,21 @@ export default function SignupForm({ onSignupSuccess }) {
             </label>
           </div>
         </fieldset>
-        <button className="button submit" disabled={submitting}>
-          {submitting ? 'Claiming…' : 'Claim this bier'} <span aria-hidden="true">→</span>
-        </button>
+        <div className="button-group">
+          <button className="button submit" disabled={submitting}>
+            {submitting ? 'Saving…' : isEditing ? 'Save changes' : 'Claim this bier'} <span aria-hidden="true">→</span>
+          </button>
+          {isEditing && (
+            <button
+              type="button"
+              className="button cancel-btn"
+              onClick={handleCancel}
+              disabled={submitting}
+            >
+              Cancel
+            </button>
+          )}
+        </div>
       </form>
     </section>
   );

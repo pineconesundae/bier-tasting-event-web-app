@@ -72,6 +72,31 @@
     & legend {
       margin-bottom: 9px;
     }
+
+    & .button-group {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 26px;
+    }
+
+    & .submit {
+      flex: 1;
+      margin-top: 0;
+    }
+
+    & .cancel-btn {
+      background: #e8ded2;
+      color: #434842;
+      border: 1px solid #c7bcab;
+      margin-top: 0;
+      padding: 16px 20px;
+
+      &:hover {
+        background: #dfd3c5;
+        color: #17291e;
+      }
+    }
   }
 
   & .choice {
@@ -129,6 +154,16 @@
 
       & .choice-row {
         grid-template-columns: 1fr;
+      }
+
+      & .button-group {
+        flex-direction: column;
+        gap: 10px;
+
+        & .submit,
+        & .cancel-btn {
+          width: 100%;
+        }
       }
     }
   }

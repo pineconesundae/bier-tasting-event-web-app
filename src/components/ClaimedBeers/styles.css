@@ -99,16 +99,60 @@
     letter-spacing: 0.08em;
   }
 
-  & .package-cell {
-    font-size: 0.82rem;
-    color: #626964;
-    white-space: nowrap;
-  }
-
   & .attendee-cell {
     font-weight: 600;
     color: #223127;
     white-space: nowrap;
+  }
+
+  & .col-actions {
+    width: 140px;
+    text-align: right;
+    padding-right: 20px;
+  }
+
+  & .actions-cell {
+    text-align: right;
+    white-space: nowrap;
+    padding-right: 20px;
+  }
+
+  & .action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+    margin-left: 6px;
+
+    &.edit-btn {
+      background: #eef4f0;
+      color: var(--green);
+      border-color: #c4d6c9;
+
+      &:hover {
+        background: var(--green);
+        color: #ffffff;
+      }
+    }
+
+    &.delete-btn {
+      background: #fae8e6;
+      color: var(--red);
+      border-color: #eec1bc;
+
+      &:hover {
+        background: var(--red);
+        color: #ffffff;
+      }
+    }
   }
 }
 
