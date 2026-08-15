@@ -7,11 +7,8 @@ function packageWorker() {
     name: 'package-cloudflare-worker',
     async closeBundle() {
       await mkdir('dist/server', { recursive: true });
-      await mkdir('dist/.openai/drizzle', { recursive: true });
       await cp('worker/index.js', 'dist/server/index.js');
       await cp('worker/signup.js', 'dist/server/signup.js');
-      await cp('.openai/hosting.json', 'dist/.openai/hosting.json');
-      await cp('migrations/0001_create_signups.sql', 'dist/.openai/drizzle/0001_create_signups.sql');
     },
   };
 }
