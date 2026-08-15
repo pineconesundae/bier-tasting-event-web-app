@@ -12,7 +12,7 @@
     {
       "binding": "DB",
       "database_name": "oktoberfest-signups",
-      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID",
+      "database_id": "fc844a92-4e23-440e-9b8f-893a50759082",
       "migrations_dir": "migrations"
     }
   ]
