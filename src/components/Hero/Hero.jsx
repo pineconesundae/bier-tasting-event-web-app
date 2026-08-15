@@ -11,8 +11,8 @@ export default function Hero() {
       <div className="hero-inner" id="top">
         <p className="eyebrow">{EVENT.eyebrow}</p>
         <h1>{EVENT.title}<span>{EVENT.subtitle}</span></h1>
-        <p className="intro">Bring bier. Drink bier. Help determine what is the undisputed Oktoberfest bier champion of the season.</p>
-        <a className="button gold" href="#signup">Choose your bier <span aria-hidden="true">↓</span></a>
+        <p className="intro">Bring bier. Drink bier. Help determine which one is the undisputed Oktoberfest bier champion of the year.</p>
+        <a className="button gold" href="#signup">Claim your bier <span aria-hidden="true">↓</span></a>
       </div>
       <div className="scallop" aria-hidden="true" />
     </header>

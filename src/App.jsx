@@ -4,6 +4,7 @@ import EventDetails from './components/EventDetails/EventDetails.jsx';
 import Rules from './components/Rules/Rules.jsx';
 import ClaimedBeers from './components/ClaimedBeers/ClaimedBeers.jsx';
 import SignupForm from './components/SignupForm/SignupForm.jsx';
+import Results from './components/Results/Results.jsx';
 import Footer from './components/Footer/Footer.jsx';
 
 function checkAdminMode() {
@@ -85,6 +86,7 @@ export default function App() {
           editingSignup={editingSignup}
           onCancelEdit={handleCancelEdit}
         />
+        <Results />
       </main>
       <Footer />
     </>
