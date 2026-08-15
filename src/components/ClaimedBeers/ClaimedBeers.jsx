@@ -18,7 +18,7 @@ export default function ClaimedBeers({ signups, loading, error, onRetry, isAdmin
         </div>
       )}
       {!loading && !error && signups.length === 0 && (
-        <p className="state empty">The tasting table is wide open. Be the first to claim a beer!</p>
+        <p className="state empty">The tasting table is wide open. Be the first to claim a bier!</p>
       )}
       {!loading && !error && signups.length > 0 && (
         <div className="table-wrapper">
