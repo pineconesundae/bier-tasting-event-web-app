@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer>
       <p className="brand">🍺 OKTOBERFEST</p>
-      <p>Beer is proof that God loves us and wants us to be happy. - Ben Franklin, maybe</p>
+      <p>Das beste Bier ist eines, das man mit Freunden teilt.</p>
       <a href="#top">Back to top ↑</a>
     </footer>
   );

@@ -12,6 +12,7 @@
     --green: #173f2b;
     --cream: #f6f0e3;
     --gold: #e8ad32;
+    --dark-gold: #b3841f;
     --red: #a43b2d;
 }
 
@@ -69,7 +70,7 @@ h2 {
     letter-spacing: 0.18em;
     font-size: 0.72rem;
     font-weight: 700;
-    color: var(--gold);
+    color: var(--dark-gold);
 }
 
 .intro {

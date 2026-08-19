@@ -14,7 +14,7 @@ export default function Results() {
       <div className="winner-card">
         <div className="trophy-badge" aria-hidden="true">🏆</div>
         <div className="winner-info">
-          <p className="winner-label">2026 Oktoberfest Champion</p>
+          <p className="winner-label">The Doug Brown Award for the 2026 Champion Oktoberfest Bier</p>
           <h3 className="winner-name">To Be Announced</h3>
           <p className="winner-desc">
             The undisputed Oktoberfest bier champion will be crowned right here once blind tasting scores are tallied on September 19, 2026.
