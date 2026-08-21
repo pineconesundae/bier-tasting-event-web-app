@@ -9,5 +9,9 @@ export const EVENT = {
   location: {
     street: '345 Wenner Way',
     city: 'Fort Washington, PA',
-  }
+  },
+  contact: {
+    name: 'Andrew',
+    email: 'andrew@wennerway-oktoberfest.com',
+  },
 };
